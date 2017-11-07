@@ -1,5 +1,4 @@
-import { config } from '../log-config';
-import { LoggerConfiguration } from '../logger';
+import { config, LoggerConfiguration } from '../log-config';
 import { AbstractLogStrategy } from './abstract-log-strategy';
 import { LogLevel } from '../log-level';
 import { LogStrategy } from './log-strategy';

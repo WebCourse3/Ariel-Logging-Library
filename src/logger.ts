@@ -2,7 +2,7 @@ import { LogLevel } from './log-level';
 import { ConsoleLogStrategy } from './strategy/console-log-strategy';
 import { FileLogStrategy } from './strategy/file-log-strategy';
 import { LogStrategy } from './strategy/log-strategy';
-import { config } from './log-config';
+import { config, LoggerConfiguration } from './log-config';
 
 export class Logger {
     private logStrategies: LogStrategy[];
@@ -39,11 +39,4 @@ export class Logger {
     public error(...strings: string[]): void {
         this.log(LogLevel.ERROR, ...strings);
     }
-}
-
-export interface LoggerConfiguration {
-    console: boolean;
-    file: boolean;
-    colors: boolean;
-    logLevel: boolean;
 }
