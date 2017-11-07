@@ -1,0 +1,26 @@
+{
+  "name": "ariel-logging-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.ts",
+  "scripts": {
+    "start": "tsc && node ./dist/test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebCourse3/Ariel-Logging-Library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebCourse3/Ariel-Logging-Library/issues"
+  },
+  "homepage": "https://github.com/WebCourse3/Ariel-Logging-Library#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.49"
+  }
+}
