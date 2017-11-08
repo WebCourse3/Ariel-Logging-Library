@@ -1,4 +1,4 @@
-import { LoggerConfiguration } from '../log-config';
+import { LoggerConfiguration } from '../logger-configuration';
 import { LogLevel } from '../log-level';
 import { LogStrategy } from './log-strategy';
 
@@ -25,7 +25,7 @@ export abstract class AbstractLogStrategy implements LogStrategy {
     }
 
     public shouldLog(level: LogLevel): boolean {
-        return level >= this.configuration.logLevel;
+        return level >= (<any>LogLevel)[this.configuration.logLevel];
     }
 
     abstract log(level: LogLevel, ...strings: string[]): void;

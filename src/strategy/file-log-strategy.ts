@@ -1,7 +1,7 @@
 import { AbstractLogStrategy } from './abstract-log-strategy';
 import { LogLevel } from '../log-level';
 import { LogStrategy } from './log-strategy';
-import { LoggerConfiguration } from '../log-config';
+import { LoggerConfiguration } from '../logger-configuration';
 import { appendFile } from 'fs';
 import { EOL } from 'os';
 

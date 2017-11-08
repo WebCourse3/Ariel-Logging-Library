@@ -2,14 +2,15 @@ import { LogLevel } from './log-level';
 import { ConsoleLogStrategy } from './strategy/console-log-strategy';
 import { FileLogStrategy } from './strategy/file-log-strategy';
 import { LogStrategy } from './strategy/log-strategy';
-import { config, LoggerConfiguration } from './log-config';
+import { LoggerConfiguration } from './logger-configuration';
+import { readFileSync } from 'fs';
 
 export class Logger {
     private logStrategies: LogStrategy[];
 
     constructor(name: string, configuration?: LoggerConfiguration) {
         this.logStrategies = new Array<LogStrategy>();
-        const conf = configuration ? configuration : config;
+        const conf = configuration ? configuration : JSON.parse(readFileSync('src/log-config.json', 'utf8')) as LoggerConfiguration;
         if (conf.file) {
             this.logStrategies.push(new FileLogStrategy(name, conf));
         }
