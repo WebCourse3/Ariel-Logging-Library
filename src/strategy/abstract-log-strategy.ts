@@ -24,5 +24,9 @@ export abstract class AbstractLogStrategy implements LogStrategy {
         return this._configuration.logLevel ? `[${LogLevel[loglevel]}] ${message}` : message;
     }
 
+    public shouldLog(level: LogLevel): boolean {
+        return level >= this.configuration.logLevel;
+    }
+
     abstract log(level: LogLevel, ...strings: string[]): void;
 }

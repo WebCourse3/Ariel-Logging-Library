@@ -12,10 +12,12 @@ export class FileLogStrategy extends AbstractLogStrategy {
     constructor(name: string, configuration: LoggerConfiguration) {
         super(name, configuration);
     }
-    
+
     public log(level: LogLevel, ...strings: string[]): void {
-        appendFile(this.fileName, super.assembleMessage(level, ...strings) + EOL, err => {
-            if (err) throw err;
-        });
+        if (super.shouldLog(level)) {
+            appendFile(this.fileName, super.assembleMessage(level, ...strings) + EOL, err => {
+                if (err) throw err;
+            });
+        }
     }
 }

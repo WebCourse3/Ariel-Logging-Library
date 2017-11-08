@@ -1,6 +1,6 @@
 export enum LogLevel {
-    INFO,
-    ERROR,
-    WARNING,
-    DEBUG,
+    DEBUG = 1,
+    INFO = 2,
+    WARNING = 3,
+    ERROR = 4,
 }

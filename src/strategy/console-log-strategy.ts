@@ -15,12 +15,14 @@ export class ConsoleLogStrategy extends AbstractLogStrategy {
         [LogLevel.ERROR, 31],
         [LogLevel.DEBUG, 34],
     ]);
-    
+
     public log(level: LogLevel, ...strings: string[]): void {
-        if (super.configuration.colors) {
-            console.log(`\x1b[${this.colorsMap.get(level)}m%s\x1b[0m`, super.assembleMessage(level, ...strings)); 
-        } else {
-            console.log(super.assembleMessage(level, ...strings));
+        if (super.shouldLog(level)) {
+            if (super.configuration.colors) {
+                console.log(`\x1b[${this.colorsMap.get(level)}m%s\x1b[0m`, super.assembleMessage(level, ...strings));
+            } else {
+                console.log(super.assembleMessage(level, ...strings));
+            }
         }
     }
 }
